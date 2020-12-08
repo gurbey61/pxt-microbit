@@ -50,26 +50,22 @@ Now, we want to add more conditional statements by clicking on the **(+)** at th
 * If these conditions are not true, play ``||music:ring tone||`` ``Middle A``
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
-    music.rest(music.beat(BeatFraction.Sixteenth));
-    let light = input.lightLevel();
-    if (light < 25) {
-        music.ringTone(music.noteFrequency(Note.C));
-    }
-    else if (light < 50) {
-        music.ringTone(music.noteFrequency(Note.D));
-    }
-    else if (light < 100) {
-        music.ringTone(music.noteFrequency(Note.E));
-    }
-    else if (light < 150) {
-        music.ringTone(music.noteFrequency(Note.F));
-    }
-    else if (light < 180) {
-        music.ringTone(music.noteFrequency(Note.G));
-    }
-    else {
-        music.ringTone(music.noteFrequency(Note.A));
+let light2 = 0
+basic.forever(function () {
+    music.rest(music.beat(BeatFraction.Sixteenth))
+    light2 = input.lightLevel()
+    if (light2 < 25) {
+        music.ringTone(262)
+    } else if (light2 < 50) {
+        music.ringTone(294)
+    } else if (light2 < 100) {
+        music.ringTone(330)
+    } else if (light2 < 150) {
+        music.ringTone(349)
+    } else if (light2 < 180) {
+        music.ringTone(392)
+    } else {
+        music.ringTone(440)
     }
 });
 ```
